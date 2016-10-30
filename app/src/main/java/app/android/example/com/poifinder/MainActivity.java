@@ -2,6 +2,8 @@ package app.android.example.com.poifinder;
 
 import android.*;
 import android.Manifest;
+import android.app.FragmentManager;
+import android.app.FragmentTransaction;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
@@ -22,9 +24,17 @@ import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
 import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.MapFragment;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.MarkerOptions;
 
 public class MainActivity extends AppCompatActivity implements
-        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
+        GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener,
+        com.google.android.gms.location.LocationListener, OnMapReadyCallback {
 
     private static final String LOG_TAG = "MainActivity";
     private static final int REQUEST_CODE = 1;
@@ -32,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements
     protected GoogleApiClient mGoogleApiClient;
     protected Location mLastLocation;
     private TextView textView;
+    private GoogleMap mMap;
 
 
     protected LocationRequest mLocationRequest;
@@ -44,8 +55,18 @@ public class MainActivity extends AppCompatActivity implements
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        textView= (TextView)findViewById(R.id.textView);
+        textView = (TextView) findViewById(R.id.textView);
         buildGoogleClient();
+        MapFragment mapFragment = (MapFragment) getFragmentManager().findFragmentById(R.id.map);
+        mapFragment.getMapAsync(this);
+
+        /*
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager()
+                .findFragmentById(R.id.map);
+
+        mapFragment.getMapAsync(this);
+        */
+
     }
 
     protected synchronized void buildGoogleClient() {
@@ -128,8 +149,6 @@ public class MainActivity extends AppCompatActivity implements
                         REQUEST_CODE);
 
 
-
-
                 // MY_PERMISSIONS_REQUEST_READ_CONTACTS is an
                 // app-defined int constant. The callback method gets the
                 // result of the request.
@@ -154,7 +173,6 @@ public class MainActivity extends AppCompatActivity implements
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
 
         //textView.setText(mLastLocation.toString());
-
 
 
     }
@@ -192,10 +210,10 @@ public class MainActivity extends AppCompatActivity implements
                         Log.d(LOG_TAG, mLastLocation.toString());
                         textView.setText(mLastLocation.toString());
 
-                    }
-                    else{
+                    } else {
                         Log.d(LOG_TAG, "Last location is empty");
                     }
+
 
 
                 } else {
@@ -227,8 +245,40 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public void onLocationChanged(Location location) {
-        Log.d(LOG_TAG, "LocationChanged"+location.toString());
+        Log.d(LOG_TAG, "LocationChanged" + location.toString());
         textView.setText(location.toString());
+        mLastLocation=location;
 
+        if(mMap!=null) {
+            LatLng currentLocation = new LatLng(location.getLatitude(), location.getLongitude());
+            //mMap.addMarker(new MarkerOptions().position(currentLocation).title("current"));
+
+            mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
+            mMap.setMinZoomPreference(15.0f);
+        }
+
+    }
+
+    @Override
+    public void onMapReady(GoogleMap googleMap) {
+        mMap = googleMap;
+
+        // Add a marker in Sydney and move the camera
+        //LatLng sydney = new LatLng(-34, 151);
+        //LatLng currentLocation = new LatLng(mLastLocation.getLatitude(), mLastLocation.getLongitude());
+        //mMap.addMarker(new MarkerOptions().position(currentLocation).title("current"));
+        //mMap.moveCamera(CameraUpdateFactory.newLatLng(currentLocation));
+        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
+            // TODO: Consider calling
+            //    ActivityCompat#requestPermissions
+            // here to request the missing permissions, and then overriding
+            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
+            //                                          int[] grantResults)
+            // to handle the case where the user grants the permission. See the documentation
+            // for ActivityCompat#requestPermissions for more details.
+            return;
+        }
+
+        mMap.setMyLocationEnabled(true);
     }
 }
