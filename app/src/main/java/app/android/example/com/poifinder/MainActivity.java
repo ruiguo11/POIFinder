@@ -28,7 +28,7 @@ public class MainActivity extends AppCompatActivity implements
         GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener, com.google.android.gms.location.LocationListener {
 
     private static final String LOG_TAG = "MainActivity";
-    private static final int REQUEST_CODE = 1;
+    private static final int LOCATION_REQUEST_CODE = 1;
 
     protected GoogleApiClient mGoogleApiClient;
     protected Location mLastLocation;
