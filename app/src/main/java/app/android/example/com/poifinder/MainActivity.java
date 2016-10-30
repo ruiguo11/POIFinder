@@ -17,6 +17,7 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.api.GoogleApiClient;
@@ -125,7 +126,7 @@ public class MainActivity extends AppCompatActivity implements
                 ActivityCompat.requestPermissions(this, new String[]{
                                 Manifest.permission.ACCESS_FINE_LOCATION,
                                 Manifest.permission.ACCESS_COARSE_LOCATION},
-                        REQUEST_CODE);
+                        LOCATION_REQUEST_CODE);
 
 
 
@@ -153,9 +154,6 @@ public class MainActivity extends AppCompatActivity implements
         }
         LocationServices.FusedLocationApi.requestLocationUpdates(mGoogleApiClient, mLocationRequest, this);
 
-        //textView.setText(mLastLocation.toString());
-
-
 
     }
 
@@ -163,7 +161,7 @@ public class MainActivity extends AppCompatActivity implements
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
         switch (requestCode) {
-            case REQUEST_CODE: {
+            case LOCATION_REQUEST_CODE: {
                 // If request is cancelled, the result arrays are empty.
                 if (grantResults.length > 0
                         && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
@@ -202,6 +200,12 @@ public class MainActivity extends AppCompatActivity implements
 
                     // permission denied, boo! Disable the
                     // functionality that depends on this permission.
+                    // Ask the user to grand the permission again
+                    ActivityCompat.requestPermissions(this, new String[]{
+                                    Manifest.permission.ACCESS_FINE_LOCATION,
+                                    Manifest.permission.ACCESS_COARSE_LOCATION},
+                            LOCATION_REQUEST_CODE);
+
                 }
 
                 //
