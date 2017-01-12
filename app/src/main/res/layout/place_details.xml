@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/content_place_details"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    tools:context="app.android.example.com.poifinder.PlaceDetailsActivityFragment"
+    tools:showIn="@layout/activity_place_details"
+    >
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <ImageView
+            android:id="@+id/place_details_photo"
+            android:layout_width="match_parent"
+            android:layout_height="200dp"
+            android:scaleType="centerCrop"
+            android:fitsSystemWindows="true"
+            android:transitionName="@string/transition_photo"
+            android:visibility="gone"
+
+            />
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="Address:"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:textSize="20dp"
+                android:typeface="sans"
+                android:textStyle="bold"
+                android:textColor="@android:color/holo_blue_dark"
+                android:fontFamily="sans-serif" />
+            <TextView
+                android:id="@+id/place_details_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="8dp"
+                android:layout_marginRight="8dp"
+                android:textSize="16dp"
+                android:typeface="sans"
+                android:textStyle="italic"
+                android:textColor="@android:color/holo_blue_dark"
+                android:fontFamily="sans-serif" />
+        </TableRow>
+
+    <RelativeLayout>
+        <RatingBar
+            android:id="@+id/place_details_rating"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:numStars="5"
+            android:stepSize="0.1"
+            android:layout_marginBottom="10dp"
+            android:isIndicator="true"
+            style="?android:attr/ratingBarStyleSmall"/>
+        <ImageButton
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+
+            android:layout_alignParentEnd="true"
+            android:id="@+id/button_favourite"
+            android:background="@mipmap/ic_unfavourite"
+            android:contentDescription="@string/FAVOURITE"/>
+    </RelativeLayout>
+
+
+    <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Opening hours:"
+                android:layout_marginRight="5dp"
+                android:textStyle="bold"
+                android:textColor="@android:color/holo_blue_dark"
+                android:typeface="sans"
+                android:textSize="20dp"/>
+            />
+             <TextView
+                 android:id="@+id/place_details_openinghours"
+                 android:layout_width="wrap_content"
+                 android:layout_height="wrap_content"
+                 android:layout_marginTop="2dp"
+                 android:layout_marginBottom="10dp"
+                 android:textSize="16dp"
+                 android:typeface="sans"
+                 android:textStyle="italic"
+                 android:textColor="@android:color/holo_blue_dark"
+                 android:fontFamily="sans-serif"/>
+
+        </TableRow>
+        <TableRow>
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Phone No.: "
+                android:textStyle="bold"
+                android:textColor="@android:color/holo_blue_dark"
+                android:typeface="sans"
+                android:textSize="20dp"/>
+            />
+            <TextView
+                android:id="@+id/place_details_phone"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="2dp"
+                android:layout_marginBottom="10dp"
+                android:textSize="16dp"
+                android:typeface="sans"
+                android:textStyle="italic"
+                android:textColor="@android:color/holo_blue_dark"
+                android:fontFamily="sans-serif"/>
+            <ImageView
+                />
+        </TableRow>
+
+
+
+        <Space
+            android:layout_height="20dp"
+            android:layout_width="match_parent"/>
+
+        <TextView
+            android:id="@+id/place_details_reviews"
+            android:text="Reviews"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="2dp"
+            android:textStyle="bold"
+            android:textColor="@android:color/holo_blue_dark"
+            android:typeface="sans"
+            android:textSize="20dp"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/layout_comments"
+            android:divider="?android:dividerHorizontal"
+            >
+            <TextView
+                android:layout_height="match_parent"
+                android:layout_width="match_parent"
+                android:id="@+id/acomment"
+                android:textSize="16dp"
+                android:typeface="sans"
+                android:textStyle="italic"
+                android:textColor="@android:color/holo_blue_dark"
+                android:fontFamily="sans-serif"
+                >
+            </TextView>
+        </RelativeLayout>
+    </TableLayout>
+
+</ScrollView >

@@ -2,4 +2,45 @@
     <string name="app_name">POI Finder</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_maps">Map</string>
+    <string name="restaurant">restaurant</string>
+    <string name="hotel">Hotel</string>
+    <string name="attraction">Attraction</string>
+    <string name="shopping">Shopping</string>
+    <string name="shopping_mall">shopping_mall</string>
+    <string name="Lodging">lodging</string>
+    <string name="title_activity_place_details">PlaceDetailsActivity</string>
+    <string name="transition_photo"> transition photo</string>
+    <string name="appwidget_text">EXAMPLE</string>
+    <string name="add_widget">Add widget</string>
+    <string name="get_direction">Get Direction</string>
+    <string name="favourite">Favourite Places</string>
+    <string name="search">Search</string>
+    <string name="park">park</string>
+    <string name="INTENT_ACTION">app.android.example.com.poifinder.widget.POIWidgetProvider.INTENT_ACTION</string>
+    <string name="DETAIL_BASE_URL">https://maps.googleapis.com/maps/api/place/details/json?placeid=</string>
+    <string name="PHOTO_BASE_URL">https://maps.googleapis.com/maps/api/place/photo?maxwidth=400</string>
+    <string name="Key">AIzaSyBqjVekacnxhn3lq-TWYTKwlxnMo1eJ364</string>
+    <string name="ARG_ITEM_ID">item_id</string>
+    <string name="List_BASE_URL">https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=</string>
+    <string name="ADD_URL">radius=50000</string>
+    <string name="PLACE_KEY">places</string>
+    <string name="Place">place</string>
+    <string name="table_name">place</string>
+    <string name="COLUMN_PLACE_ID">place_id</string>
+    <string name="COLUMN_PLACE_NAME">name</string>
+    <string name="COLUMN_PLACE_PHONE">phone</string>
+    <string name="COLUMN_PLACE_ADDRESS">address</string>
+    <string name="COLUMN_PLACE_RATING">rating</string>
+    <string name="COLUMN_PLACE_PHOTO">photo</string>
+    <string name="COLUMN_PLACE_HOURS">opening_hours</string>>
+    <string name= "COLUMN_PLACE_TYPE">types</string>
+    <string name="COLUMN_PLACE_REVIEW">reviews</string>
+    <string name="lat">lat</string>
+    <string name="lng">lng</string>
+    <string name="googlemap_package">com.google.android.apps.maps</string>
+    <string name="API_URL">key=</string>
+    <string name="FAVOURITE">favourites</string>
+    <string name="TYPE_KEY">type</string>
+    <string name="CONTENT_AUTHORITY">app.android.example.com.poifinder</string>
+
 </resources>

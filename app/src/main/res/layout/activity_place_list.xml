@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context="app.android.example.com.poifinder.PlaceListActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:theme="@style/AppTheme.AppBarOverlay"
+        android:elevation="4dp">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:popupTheme="@style/AppTheme.PopupOverlay">
+        </android.support.v7.widget.Toolbar>>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginTop="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:weightSum="5"
+                android:orientation="horizontal"
+                android:layout_marginTop="16dp"
+                >
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/button_rest"
+                    android:layout_weight="1"
+                    android:background="@mipmap/ic_rest"
+                    android:elevation="2dp"
+                    android:contentDescription="@string/restaurant"
+                    />
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/button_hotel"
+                    android:layout_weight="1"
+                    android:background="@mipmap/ic_hotel"
+                    android:contentDescription="@string/hotel"
+                    android:elevation="2dp"/>
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/button_attr"
+                    android:layout_weight="1"
+                    android:background="@mipmap/ic_attr"
+                    android:contentDescription="@string/attraction"
+                    android:elevation="2dp"/>
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/button_shopping"
+                    android:layout_weight="1"
+                    android:background="@mipmap/ic_shopping"
+                    android:contentDescription="@string/shopping"
+                    android:elevation="2dp"/>
+
+                <ImageButton
+                    android:layout_width="0dp"
+                    android:layout_height="80dp"
+                    android:id="@+id/list_button_favourite"
+                    android:layout_weight="1"
+                    android:background="@mipmap/ic_favourite"
+                    android:contentDescription="@string/favourite"
+                    android:elevation="2dp"/>
+
+            </LinearLayout>
+        </LinearLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <fragment
+        android:id="@+id/place_autocomplete_fragment"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+        />
+    <FrameLayout
+        android:id="@+id/frameLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+            <include layout="@layout/place_list" />
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/list_emptyView"/>
+
+    </FrameLayout>
+
+
+</android.support.design.widget.CoordinatorLayout>
