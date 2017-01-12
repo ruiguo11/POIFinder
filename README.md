@@ -7,4 +7,7 @@ Users can get lists of nearby hotels, restaurants, shopping malls, parks..., and
 
 The app also allow users to save their favourite place and view offline. 
 
+## How to use this project
+You have to get an Google map api key, and put it ![alt_tag]https://github.com/ruiguo11/POIFinder/blob/master/app/src/release/res/values/google_maps_api.xml
+
 ![alt tag] (https://github.com/ruiguo11/POIFinder/blob/master/Screenshot_20170112-201238-1.png)
