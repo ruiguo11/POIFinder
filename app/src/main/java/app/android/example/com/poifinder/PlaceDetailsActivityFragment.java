@@ -60,12 +60,7 @@ public class PlaceDetailsActivityFragment extends Fragment {
     private String opening_hours;
     private String review;
 
-    //private String BASE_URL="https://maps.googleapis.com/maps/api/place/details/json?placeid=";
-    //private static final String PHOTO_BASE_URL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=";
 
-
-    //private static final String Key = "AIzaSyAY1pzlS7HRxxZbELz2y8hPByMcsqUN0mo";
-    //private static final String Key = "AIzaSyAE9cMWoCIhXhz9rUF51ed54mAQ_cttNzM";
     private CollapsingToolbarLayout appBarLayout;
 
     public PlaceDetailsActivityFragment() {

@@ -80,18 +80,6 @@ public class PlaceListActivity extends AppCompatActivity implements
 
     protected LocationRequest mLocationRequest;
 
-    //private static final String BASE_URL = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=";
-
-    //private static final String ADD_URL = "&radius=50000&type=";
-    //private static final String API_URL = getString(R.string.API_URL)
-
-    //private static final String Key = "AIzaSyAY1pzlS7HRxxZbELz2y8hPByMcsqUN0mo";
-    //private static final String Key = "AIzaSyAE9cMWoCIhXhz9rUF51ed54mAQ_cttNzM";
-
-    //private static final String PLACE_KEY = "places";
-
-    //private static final String PHOTO_BASE_URL = "https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=";
-
 
     private boolean mTwoPane;
     public PlaceListAdapter placeListAdapter;
