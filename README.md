@@ -10,4 +10,4 @@ The app also allow users to save their favourite place and view offline.
 ## How to use this project
 You have to get an Google map api key, and put it https://github.com/ruiguo11/POIFinder/blob/master/app/src/release/res/values/google_maps_api.xml
 
-<img src=" POIFinder/Screenshot_20170112-201238-1.jpg">
+<img src="https://github.com/ruiguo11/POIFinder/blob/master/Screenshot_20170112-201238-1.jpg">
